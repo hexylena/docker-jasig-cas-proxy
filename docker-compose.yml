@@ -12,5 +12,7 @@ services:
       SERVER_NAME: localhost
       DOMAIN: example.edu
       LISTEN_PORT: 8000
+      CAS_LOGIN_URL: https://erasche.github.io/fakeCAS/login.html
+      CAS_VALIDATE_URL: https://erasche.github.io/fakeCAS/serviceValidate.html
   echo:
     image: quay.io/tamu_cpt/httpbin:latest

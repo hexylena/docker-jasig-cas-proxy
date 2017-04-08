@@ -17,7 +17,9 @@ ADD auth_cas.conf /etc/apache2/mods-enabled/auth_cas.conf.tmpl
 ENV LISTEN_PORT=80 \
 	BACKEND_PORT=8000 \
 	SERVER_NAME=example.com \
-	DOMAIN=example.edu
+	DOMAIN=example.edu \
+	CAS_LOGIN_URL=https://erasche.github.io/fakeCAS/autoLogin.html \
+	CAS_VALIDATE_URL=https://erasche.github.io/fakeCAS/serviceValidate.html
 
 CMD dockerize \
 	-template /etc/apache2/sites-enabled/000-default.tmpl:/etc/apache2/sites-enabled/000-default.conf \
