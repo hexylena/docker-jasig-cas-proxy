@@ -1,8 +1,7 @@
 version: '2'
 services:
   remote_user:
-    #build: .
-    image: dacp
+    build: .
     links:
       - echo:target
     ports:
