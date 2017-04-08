@@ -1,0 +1,16 @@
+version: '2'
+services:
+  remote_user:
+    #build: .
+    image: dacp
+    links:
+      - echo:target
+    ports:
+      - "8000:8000"
+    environment:
+      BACKEND_PORT: "8000"
+      SERVER_NAME: localhost
+      DOMAIN: example.edu
+      LISTEN_PORT: 8000
+  echo:
+    image: quay.io/tamu_cpt/httpbin:latest
