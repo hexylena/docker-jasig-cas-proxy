@@ -1,7 +1,8 @@
 version: '2'
 services:
   remote_user:
-    build: .
+    #build: .
+    image: quay.io/erasche/jasig-cas-proxy:latest
     links:
       - echo:target
     ports:
