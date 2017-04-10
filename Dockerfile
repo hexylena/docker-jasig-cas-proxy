@@ -16,6 +16,7 @@ ADD auth_cas.conf /etc/apache2/mods-enabled/auth_cas.conf.tmpl
 
 ENV LISTEN_PORT=80 \
 	BACKEND_PORT=8000 \
+	BACKEND_NAME=target \
 	SERVER_NAME=example.com \
 	DOMAIN=example.edu \
 	CAS_LOGIN_URL=https://erasche.github.io/fakeCAS/autoLogin.html \

@@ -16,9 +16,9 @@ ServerName {{ .Env.SERVER_NAME }}
 		Allow from all
 	</Location>
 
-	ProxyPass / http://target:{{ .Env.BACKEND_PORT }}/
+	ProxyPass / http://{{ .Env.BACKEND_NAME }}:{{ .Env.BACKEND_PORT }}/
 	<Location "/">
-		ProxyPassReverse http://target:{{ .Env.BACKEND_PORT }}/
+		ProxyPassReverse http://{{ .Env.BACKEND_NAME }}:{{ .Env.BACKEND_PORT }}/
 		AuthName "CAS"
 		AuthType CAS
 		Require valid-user
