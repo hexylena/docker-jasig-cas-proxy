@@ -1,6 +1,6 @@
 LogLevel trace8
 ServerName {{ .Env.SERVER_NAME }}
-<VirtualHost *:{{ .Env.LISTEN_PORT }}>
+<VirtualHost *:{{ .Env.LISTEN_PORT_SSL }}>
 	ServerAdmin webmaster@localhost
 	DocumentRoot /var/www/html
 	# Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
@@ -25,10 +25,14 @@ ServerName {{ .Env.SERVER_NAME }}
 		##XSendFile on
 		##XSendFilePath /
 		# Append mail domain
-		RequestHeader set CAS-User expr=%{REMOTE_USER}@{{ .Env.DOMAIN }}
-		RequestHeader set X-URL-SCHEME http
+		RequestHeader set CAS-User "%{REMOTE_USER}s@tamu.edu"
+		RequestHeader set X-URL-SCHEME https
 		ProxyPassReverse http://{{ .Env.BACKEND_NAME }}:{{ .Env.BACKEND_PORT }}/
 	</Location>
+
+	SSLEngine on
+	SSLCertificateFile	/etc/ssl/certs/ssl-cert-snakeoil.pem
+	SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
 </VirtualHost>
 
 # vim: syntax=apache ts=4 sw=4 sts=4 sr noet
