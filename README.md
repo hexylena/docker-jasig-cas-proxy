@@ -11,7 +11,7 @@ docker-compose up
 This command assumes that the service you wish to proxy to is running on port `10000` and that you wish the proxy to listen on `localhost:8000`
 
 ```console
-docker run -it -p8000:8000 -e BACKEND_PORT=10000 -e BACKEND_NAME=localhost -e LISTEN_PORT=8000 -e SERVER_NAME=localhost --net host quay.io/erasche/jasig-cas-proxy:latest
+docker run -it -p8000:8000 -e BACKEND_PORT=10000 -e BACKEND_NAME=localhost -e LISTEN_PORT=8000 -e LISTEN_PORT_SSL=8443 -e SERVER_NAME=localhost --net host quay.io/erasche/jasig-cas-proxy:latest
 ```
 
 ## Environment Variables
