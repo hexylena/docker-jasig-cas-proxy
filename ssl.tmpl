@@ -25,7 +25,7 @@ ServerName {{ .Env.SERVER_NAME }}
 		##XSendFile on
 		##XSendFilePath /
 		# Append mail domain
-		RequestHeader set CAS-User "%{REMOTE_USER}s@tamu.edu"
+		RequestHeader set CAS-User "%{REMOTE_USER}s@{{ .Env.DOMAIN }}"
 		RequestHeader set X-URL-SCHEME https
 		ProxyPassReverse http://{{ .Env.BACKEND_NAME }}:{{ .Env.BACKEND_PORT }}/
 	</Location>
