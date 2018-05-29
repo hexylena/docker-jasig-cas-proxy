@@ -1,5 +1,4 @@
 FROM debian:stable-slim
-MAINTAINER Eric Rasche <hxr@hx42.org>
 
 ENV DOCKERIZE_VERSION v0.4.0
 RUN DEBIAN_FRONTEND=noninteractive \
@@ -19,7 +18,7 @@ ENV LISTEN_PORT=80 \
 	LISTEN_PORT_SSL=443 \
 	BACKEND_PORT=8000 \
 	BACKEND_NAME=target \
-	SERVER_NAME=example.com \
+	SERVER_NAME=localhost \
 	DOMAIN=example.edu \
 	CAS_LOGIN_URL=https://erasche.github.io/fakeCAS/autoLogin.html \
 	CAS_VALIDATE_URL=https://erasche.github.io/fakeCAS/serviceValidate.html
